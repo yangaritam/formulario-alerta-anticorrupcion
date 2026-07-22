@@ -255,4 +255,17 @@ function crearFormulario() {
   Logger.log('Formulario creado con éxito.');
   Logger.log('Enlace para RESPONDER (compártelo): ' + form.getPublishedUrl());
   Logger.log('Enlace para EDITAR (solo para ti): ' + form.getEditUrl());
+  // ... (aquí va el resto de tu código anterior) ...
+  form.addParagraphTextItem().setTitle('Hechos detallados (narración libre)');
+  form.addParagraphTextItem().setTitle('Línea de tiempo cronológica')
+    .setHelpText('Liste los hitos clave del hecho.');
+
+  // ------------------------------------------------------------------
+  // ¡NUEVO!: CÓDIGO PARA IMPRIMIR LOS ENLACES EN LA PANTALLA
+  // ------------------------------------------------------------------
+  Logger.log('=== ¡FORMULARIO CREADO CON ÉXITO! ===');
+  Logger.log('1. ENLACE PARA EDITAR (Solo tú): ' + form.getEditUrl());
+  Logger.log('2. ENLACE PARA RESPONDER (Público): ' + form.getPublishedUrl());
+}
+
 }
