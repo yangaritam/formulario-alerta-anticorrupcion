@@ -53,22 +53,8 @@
     margin:0;
     font-weight:700;
   }
-  .header-right{display:flex; align-items:center; gap:12px;}
-  .radicado{
-    background:#fff;
-    color:var(--navy-dark);
-    font-size:12px;
-    font-weight:700;
-    padding:6px 10px;
-    border-radius:5px;
-  }
-  .close-btn{
-    background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;
-  }
   .modal-body{
     padding:24px;
-    max-height:75vh;
-    overflow-y:auto;
   }
   .section{
     border:1px solid var(--card-border);
@@ -98,19 +84,6 @@
     text-transform:uppercase;
     color:var(--navy-dark);
   }
-  .badge{
-    margin-left:auto;
-    font-size:10.5px;
-    font-weight:700;
-    padding:3px 10px;
-    border-radius:20px;
-    text-transform:uppercase;
-    letter-spacing:0.3px;
-  }
-  .badge-required{background:var(--danger-bg); color:var(--red); border:1px solid var(--danger-border);}
-  .badge-api{background:var(--ok-bg); color:var(--green); border:1px solid var(--ok-border);}
-  .badge-doc{background:var(--ok-bg); color:var(--green); border:1px solid var(--ok-border);}
-
   .row{
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
@@ -131,7 +104,7 @@
     color:var(--text-muted);
     margin-top:4px;
   }
-  input[type=text], input[type=date], input[type=number], input[type=url], select, textarea{
+  input[type=text], input[type=date], select, textarea{
     width:100%;
     padding:9px 10px;
     border:1px solid #c9cdd8;
@@ -141,11 +114,7 @@
     color:var(--text);
     background:#fff;
   }
-  input::placeholder, textarea::placeholder{color:#9a9fb0;}
   textarea{resize:vertical; min-height:70px;}
-  .char-count{font-size:11px; color:var(--text-muted); text-align:right; margin-top:2px;}
-
-  /* Anonymous banner */
   .anon-banner{
     display:flex;
     align-items:center;
@@ -159,677 +128,125 @@
   }
   .anon-banner .txt strong{display:block; font-size:13.5px; margin-bottom:2px;}
   .anon-banner .txt span{font-size:12px; color:#c6c9de;}
-  .switch{
-    position:relative; display:inline-block; width:44px; height:24px; flex-shrink:0;
+  .btn-submit-container {
+    text-align: right;
+    margin-top: 20px;
   }
-  .switch input{opacity:0;width:0;height:0;}
-  .slider{
-    position:absolute; cursor:pointer; inset:0;
-    background:#4a4f6d; transition:.2s; border-radius:24px;
+  .btn-primary{
+    background:var(--navy); color:#fff; border:none; border-radius:6px; 
+    padding:12px 24px; font-size:14px; font-weight:700; cursor:pointer;
   }
-  .slider:before{
-    position:absolute; content:""; height:18px; width:18px; left:3px; bottom:3px;
-    background:#fff; transition:.2s; border-radius:50%;
-  }
-  input:checked + .slider{background:var(--blue-accent);}
-  input:checked + .slider:before{transform:translateX(20px);}
-  .switch-row{display:flex; align-items:center; gap:10px;}
-  .switch-row .state-label{font-size:12.5px; font-weight:600;}
-
-  /* Category cards */
-  .cat-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-bottom:16px;
-  }
-  .cat-card{
-    border:1.5px solid var(--card-border);
-    border-radius:8px;
-    padding:12px 14px;
-    cursor:pointer;
-    transition:.15s;
-  }
-  .cat-card:hover{border-color:#b7bcd6;}
-  .cat-card.selected{
-    border-color:var(--blue-accent);
-    background:#eef2ff;
-  }
-  .cat-card .dot{
-    display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px;
-  }
-  .dot-red{background:var(--red);}
-  .dot-orange{background:var(--orange);}
-  .dot-green{background:var(--green);}
-  .cat-card .cat-title{font-size:13.5px; font-weight:700;}
-  .cat-card .cat-desc{font-size:11.5px; color:var(--text-muted); margin-top:4px;}
-
-  .checkbox-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:10px;
-    margin-bottom:16px;
-  }
-  .checkbox-grid.two{grid-template-columns:1fr 1fr;}
-  .checkbox-item{
-    display:flex; align-items:flex-start; gap:8px; font-size:13px;
-  }
-  .checkbox-item input{margin-top:2px;}
-  .sub-label{font-size:11.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:8px; letter-spacing:0.3px;}
-
-  .inline-add{display:flex; gap:8px; margin-bottom:8px;}
-  .inline-add input{flex:1;}
-  .btn{
-    border:none; border-radius:6px; padding:9px 16px; font-size:13px; font-weight:700;
-    cursor:pointer; white-space:nowrap;
-  }
-  .btn-outline{background:#fff; border:1px solid #c9cdd8; color:var(--text);}
-  .btn-secondary{background:#eef1f8; color:var(--navy-dark);}
-  .btn-gold{background:#fff3d6; color:#8a6a10; border:1px solid #f0d789;}
-  .btn-primary{background:var(--navy); color:#fff;}
   .btn-primary:hover{background:var(--navy-dark);}
-  .btn-link{background:none; border:none; color:var(--blue-accent); font-size:12.5px; font-weight:700; cursor:pointer; padding:0;}
-
-  .persons-row{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:10px;}
-  .persons-actions{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;}
-  .persons-actions .left{display:flex; gap:16px;}
-  .note-italic{font-size:11.5px; color:var(--text-muted); font-style:italic; margin-bottom:12px;}
-
-  details.guide{
-    border:1px solid var(--card-border); border-radius:6px; margin-top:10px; margin-bottom:16px;
-  }
-  details.guide summary{
-    padding:10px 14px; font-size:12.5px; font-weight:700; color:var(--blue-accent); cursor:pointer;
-    list-style:none; display:flex; align-items:center; gap:6px;
-  }
-  details.guide summary::-webkit-details-marker{display:none;}
-  .guide-content{padding:0 14px 14px;}
-  .risk-block{border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:12px;}
-  .risk-block h4{margin:0 0 6px; font-size:12.5px;}
-  .risk-block ul{margin:0; padding-left:18px;}
-  .risk-block li{margin-bottom:3px;}
-  .risk-critical{background:var(--danger-bg); border:1px solid var(--danger-border); color:#7a1522;}
-  .risk-high{background:var(--warn-bg); border:1px solid var(--warn-border); color:#7a5a10;}
-  .risk-medium{background:#fffceb; border:1px solid #f0eab0; color:#726b12;}
-
-  .dropzone{
-    border:2px dashed #b7bcd6;
-    border-radius:8px;
-    padding:30px 16px;
-    text-align:center;
-    background:#fafbfd;
-    margin-bottom:16px;
-    cursor:pointer;
-  }
-  .dropzone:hover{background:#f1f3fb;}
-  .dropzone .icon{font-size:22px; margin-bottom:6px;}
-  .dropzone .main{font-size:13px; font-weight:700; color:var(--text);}
-  .dropzone .sub{font-size:11.5px; color:var(--text-muted); margin-top:4px;}
-
-  .modal-footer{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 24px; border-top:1px solid var(--card-border);
-  }
-  .footer-left{display:flex; gap:10px;}
-
-  ul.timeline-list, ul.link-list, ul.file-list{list-style:none; padding:0; margin:0 0 10px;}
-  ul.timeline-list li, ul.link-list li, ul.file-list li{
-    display:flex; justify-content:space-between; align-items:center;
-    background:#f4f5f8; border-radius:5px; padding:7px 10px; font-size:12.5px; margin-bottom:6px;
-  }
-  ul.timeline-list li button, ul.link-list li button, ul.file-list li button{
-    background:none;border:none;color:var(--red);cursor:pointer;font-size:12px;font-weight:700;
-  }
-  .hidden{display:none !important;}
-  @media (max-width:640px){
-    .row, .row.two, .cat-grid, .checkbox-grid, .persons-row{grid-template-columns:1fr;}
-  }
 </style>
 </head>
 <body>
 
-<form class="modal" id="alertForm">
+<div class="modal">
   <div class="modal-header">
-    <h1>REGISTRO DE ALERTA</h1>
-    <div class="header-right">
-      <span class="radicado" id="radicado">EMP-AMB-2026-0173</span>
-      <button type="button" class="close-btn" title="Cerrar" onclick="if(confirm('¿Descartar el registro?')) window.location.reload();">✕</button>
-    </div>
+    <h1>REGISTRO DE ALERTA — SISTEMA DE INTEGRIDAD ANTICORRUPCIÓN</h1>
   </div>
-
+  
   <div class="modal-body">
-
-    <!-- Denuncia anónima -->
-    <div class="anon-banner">
-      <div class="txt">
-        <strong>Denuncia anónima</strong>
-        <span>Si activa esta opción, no se solicitarán ni se guardarán sus datos como responsable de carga.</span>
-      </div>
-      <label class="switch">
-        <input type="checkbox" id="anonToggle" onchange="toggleAnon()">
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <!-- 1. Identificación y responsables -->
-    <div class="section">
-      <div class="section-title">
-        <span class="section-num">1</span>
-        <span class="label">Identificación y responsables</span>
-        <span class="badge badge-required">Obligatorio</span>
-      </div>
-      <div class="row">
-        <div class="field">
-          <label>Fecha de carga <span class="req">*</span></label>
-          <input type="date" id="fechaCarga" required>
+    <!-- REEMPLAZA EL ENLACE DE ABAJO POR TU URL DE GOOGLE APPS SCRIPT -->
+    <form action="https://script.google.com/macros/s/AKfycbx6UMQjQwvrTATMSmD1YmPk3Xui2V-OYBnrGx89lMWCSvy7sLasfqapjNwAF5xgSFooog/exec" method="POST">
+      
+      <!-- PORTADA: ANONIMATO -->
+      <div class="anon-banner">
+        <div class="txt">
+          <strong>¿Desea presentar esta alerta de forma anónima?</strong>
+          <span>Si selecciona "Sí", no se le solicitarán sus datos como responsable de carga.</span>
         </div>
-        <div class="field">
-          <label>Fecha del hecho <span class="req">*</span></label>
-          <input type="date" id="fechaHecho" required>
-          <div class="hint">Si se desconoce la fecha exacta, reporte la fecha en la que se encontró o detectó la irregularidad.</div>
-        </div>
-        <div class="field">
-          <label>Estado del registro</label>
-          <select id="estadoRegistro">
-            <option>Borrador</option>
-            <option>En revisión</option>
-            <option>Enviado</option>
+        <div>
+          <select name="anonimo" style="width: auto; background: #fff; color: var(--navy-dark); font-weight: bold;">
+            <option value="No">No, identificarme</option>
+            <option value="Sí">Sí, mantener anónimo</option>
           </select>
         </div>
       </div>
-      <div class="row" id="responsableRow">
-        <div class="field">
-          <label>Responsable de carga <span class="req">*</span></label>
-          <select id="responsableCarga">
-            <option>YAMAL ANGARITA MEJÍA (Tu Usuario - Delegado)</option>
-            <option>Otro usuario delegado…</option>
-          </select>
+
+      <!-- SECCIÓN 1 -->
+      <div class="section">
+        <div class="section-title">
+          <div class="section-num">1</div>
+          <span class="label">Identificación y responsables</span>
         </div>
-      </div>
-    </div>
-
-    <!-- 2. Sector y entidad -->
-    <div class="section">
-      <div class="section-title">
-        <span class="section-num">2</span>
-        <span class="label">Sector y entidad — datos abiertos PGN</span>
-        <span class="badge badge-api">API Conectada</span>
-      </div>
-      <div class="row two">
-        <div class="field">
-          <label>Sector <span class="req">*</span></label>
-          <select id="sector">
-            <option>Ambiente y Desarrollo Sostenible</option>
-            <option>Salud y Protección Social</option>
-            <option>Educación</option>
-            <option>Hacienda y Crédito Público</option>
-            <option>Infraestructura y Transporte</option>
-            <option>Interior</option>
-            <option>Trabajo</option>
-            <option>Otro</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Entidad <span class="req">*</span></label>
-          <select id="entidad">
-            <option value="">Seleccione la entidad</option>
-            <option>Ministerio de Ambiente y Desarrollo Sostenible</option>
-            <option>ANLA</option>
-            <option>Parques Nacionales Naturales</option>
-            <option>Corporación Autónoma Regional</option>
-          </select>
-        </div>
-      </div>
-      <div class="field" style="margin-bottom:14px;">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <label style="margin-bottom:0;">Entidades secundarias / relacionadas</label>
-          <button type="button" class="btn btn-outline" onclick="addRelatedEntity()">+ Agregar Entidad Relacionada</button>
-        </div>
-        <ul class="link-list" id="relatedEntitiesList"></ul>
-      </div>
-      <div class="field">
-        <label>Dependencia o área específica</label>
-        <input type="text" id="dependencia" placeholder="Ej: Oficina de Contratación, Subdirección Financiera...">
-      </div>
-    </div>
-
-    <!-- 3. Categoría de la alerta -->
-    <div class="section">
-      <div class="section-title">
-        <span class="section-num">3</span>
-        <span class="label">Categoría de la alerta</span>
-      </div>
-      <div class="cat-grid" id="catGrid">
-        <div class="cat-card" data-cat="contratacion" onclick="selectCategory('contratacion')">
-          <div class="cat-title"><span class="dot dot-red"></span>Contratación</div>
-          <div class="cat-desc">Procesos contractuales inusuales, OPS, convenios, Ley de Garantías.</div>
-        </div>
-        <div class="cat-card" data-cat="presupuesto" onclick="selectCategory('presupuesto')">
-          <div class="cat-title"><span class="dot dot-orange"></span>Modificaciones Presupuestales</div>
-          <div class="cat-desc">Traslados, adiciones y ejecuciones aceleradas.</div>
-        </div>
-        <div class="cat-card" data-cat="denuncia" onclick="selectCategory('denuncia')">
-          <div class="cat-title"><span class="dot dot-orange"></span>Denuncia Ciudadana y Medios</div>
-          <div class="cat-desc">Alertas de ciudadanos, medios, informantes y veedurías.</div>
-        </div>
-        <div class="cat-card" data-cat="personal" onclick="selectCategory('personal')">
-          <div class="cat-title"><span class="dot dot-green"></span>Personal</div>
-          <div class="cat-desc">Nombramientos en provisionalidad y plantas.</div>
-        </div>
-      </div>
-
-      <div class="sub-label">Sub-tipo</div>
-
-      <div class="checkbox-grid" id="subtipo-contratacion">
-        <label class="checkbox-item"><input type="checkbox">Contratos OPS inusuales</label>
-        <label class="checkbox-item"><input type="checkbox">Contratos de alto valor</label>
-        <label class="checkbox-item"><input type="checkbox">Período Ley de Garantías</label>
-        <label class="checkbox-item"><input type="checkbox">Proceso contractual en curso</label>
-        <label class="checkbox-item"><input type="checkbox">Contratación de convenios interadministrativos</label>
-        <label class="checkbox-item"><input type="checkbox">Elefante Blanco</label>
-        <label class="checkbox-item"><input type="checkbox">Otro (Especificar)</label>
-      </div>
-
-      <div class="checkbox-grid hidden" id="subtipo-presupuesto">
-        <label class="checkbox-item"><input type="checkbox">Traslado presupuestal</label>
-        <label class="checkbox-item"><input type="checkbox">Adición presupuestal</label>
-        <label class="checkbox-item"><input type="checkbox">Ejecución acelerada</label>
-        <label class="checkbox-item"><input type="checkbox">Compromiso de vigencias futuras</label>
-        <label class="checkbox-item"><input type="checkbox">Otro (Especificar)</label>
-      </div>
-
-      <div class="checkbox-grid hidden" id="subtipo-denuncia">
-        <label class="checkbox-item"><input type="checkbox">Denuncia ciudadana directa</label>
-        <label class="checkbox-item"><input type="checkbox">Informante / veeduría</label>
-        <label class="checkbox-item"><input type="checkbox">Publicación en medios</label>
-        <label class="checkbox-item"><input type="checkbox">Otro (Especificar)</label>
-      </div>
-
-      <div class="checkbox-grid hidden" id="subtipo-personal">
-        <label class="checkbox-item"><input type="checkbox">Provisionalidad</label>
-        <label class="checkbox-item"><input type="checkbox">Requisitos</label>
-        <label class="checkbox-item"><input type="checkbox">Modificación planta</label>
-        <label class="checkbox-item"><input type="checkbox">Acoso laboral</label>
-        <label class="checkbox-item"><input type="checkbox">Acoso sexual</label>
-        <label class="checkbox-item"><input type="checkbox">Otro (Especificar)</label>
-      </div>
-
-      <div class="field" id="secopField" style="margin-top:6px;">
-        <label>Enlaces del contrato o contratos (SECOP)</label>
-        <div class="inline-add">
-          <input type="text" id="secopInput" placeholder="Pegue el enlace del contrato en SECOP y presione +">
-          <button type="button" class="btn btn-outline" onclick="addToList('secopInput','secopList')">+</button>
-          <button type="button" class="btn btn-gold">🔍 Buscar en SECOP</button>
-        </div>
-        <ul class="link-list" id="secopList"></ul>
-      </div>
-
-      <div class="field" style="margin-top:16px;">
-        <div class="sub-label">Factores de riesgo de corrupción</div>
-        <div class="checkbox-grid two">
-          <label class="checkbox-item"><input type="checkbox">Pérdida de recursos públicos (Desfalcos, sobrecostos)</label>
-          <label class="checkbox-item"><input type="checkbox">Desviación o manejo normativo contrario (Ilegalidad)</label>
-          <label class="checkbox-item"><input type="checkbox">Delitos / Hechos derivados de corrupción</label>
-          <label class="checkbox-item"><input type="checkbox">Riesgo inminente por cambios normativos de transición</label>
-          <label class="checkbox-item"><input type="checkbox">Riesgo de clientelismo, nombramientos masivos o amarre de cargos en la planta de personal</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- 4. Fuente de información -->
-    <div class="section">
-      <div class="section-title">
-        <span class="section-num">4</span>
-        <span class="label">Fuente de información</span>
-      </div>
-      <div class="field" style="margin-bottom:16px;">
-        <label>Origen de los datos <span class="req">*</span></label>
-        <select id="origenDatos">
-          <option>Línea anticorrupción</option>
-          <option>Denuncia ciudadana</option>
-          <option>Medios de comunicación</option>
-          <option>Ente de control</option>
-          <option>Informante interno</option>
-          <option>Otro</option>
-        </select>
-      </div>
-      <div class="switch-row">
-        <label class="switch">
-          <input type="checkbox" id="fuentesPublicas">
-          <span class="slider"></span>
-        </label>
-        <span class="state-label">¿Fueron consultadas fuentes de datos públicos (SECOP, SIGEP, etc.) para validar esta información?</span>
-      </div>
-    </div>
-
-    <!-- 5. Descripción de la alerta -->
-    <div class="section">
-      <div class="section-title">
-        <span class="section-num">5</span>
-        <span class="label">Descripción de la alerta</span>
-      </div>
-
-      <div class="field" style="margin-bottom:16px;">
-        <label>Descripción ejecutiva <span class="req">*</span></label>
-        <div class="hint" style="margin:0 0 6px;">Titular noticioso o síntesis de denuncia (Máx. 500 caracteres)</div>
-        <textarea id="descExec" maxlength="500" placeholder="Resumen de la alerta..." oninput="document.getElementById('charCount').textContent=this.value.length"></textarea>
-        <div class="char-count"><span id="charCount">0</span> / 500</div>
-      </div>
-
-      <div class="field" style="margin-bottom:16px;">
-        <label>Hechos detallados (narración libre)</label>
-        <textarea placeholder="Detalles de los hechos..."></textarea>
-      </div>
-
-      <div class="field" style="margin-bottom:16px;">
-        <label>Línea de tiempo cronológica</label>
-        <div class="inline-add">
-          <input type="date" id="timelineDate" style="flex:0 0 160px;">
-          <input type="text" id="timelineDesc" placeholder="Descripción del hito o evento...">
-          <button type="button" class="btn btn-outline" onclick="addTimeline()">+ Agregar</button>
-        </div>
-        <ul class="timeline-list" id="timelineList"></ul>
-      </div>
-
-      <div class="field" style="margin-bottom:16px;">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <label style="margin-bottom:0;">📎 Links de medios / comunicados oficiales</label>
-          <span class="badge badge-doc">Prueba documental</span>
-        </div>
-        <div class="hint" style="margin:4px 0 8px;">Incluya links a noticias, comunicados de prensa o publicaciones oficiales que respalden esta denuncia.</div>
-        <div class="inline-add">
-          <input type="text" id="mediaLinkInput" placeholder="Pegue el enlace del artículo, noticia o comunicado y presione +">
-          <button type="button" class="btn btn-outline" onclick="addToList('mediaLinkInput','mediaLinkList')">+ Agregar</button>
-        </div>
-        <ul class="link-list" id="mediaLinkList"></ul>
-      </div>
-
-      <div class="field" style="margin-bottom:16px;">
-        <label>Personas involucradas</label>
-        <div class="note-italic">Corresponde a personas que están presuntamente vinculadas o involucradas en el hecho reportado. No incluye a los funcionarios, ciudadanos o particulares que denuncian o reportan la irregularidad.</div>
-        <div class="persons-row">
-          <input type="text" id="personName" placeholder="Nombre completo">
-          <input type="text" id="personRole" placeholder="Cargo">
-        </div>
-        <div class="persons-actions">
-          <div class="left">
-            <label class="checkbox-item"><input type="checkbox">¿Servidor Público?</label>
-            <label class="checkbox-item"><input type="checkbox">¿Particular?</label>
-          </div>
-          <div style="display:flex; gap:8px;">
-            <button type="button" class="btn btn-gold">🔍 Verificar SIGEP</button>
-            <button type="button" class="btn btn-outline" onclick="addPerson()">+ Agregar Persona</button>
-          </div>
-        </div>
-        <ul class="link-list" id="personsList" style="margin-top:10px;"></ul>
-        <button type="button" class="btn-link" style="margin-top:8px;">▸ Carga Masiva de Personas (Haga clic aquí)</button>
-      </div>
-
-      <div class="field" style="margin-bottom:16px;">
-        <div class="switch-row" style="margin-bottom:12px;">
-          <label class="switch">
-            <input type="checkbox" id="empresaToggle" onchange="toggleEmpresa()">
-            <span class="slider"></span>
-          </label>
-          <span class="state-label">¿Hay alguna empresa/contratista involucrado?</span>
-        </div>
-        <div id="empresaBlock" class="hidden" style="border:1px solid var(--card-border); border-radius:8px; padding:14px;">
-          <div class="sub-label">Buscador RUES oficial (Confecámaras)</div>
-          <label style="font-size:12px; font-weight:600; display:block; margin-bottom:6px;">Buscar empresa por NIT o nombre</label>
-          <div class="inline-add">
-            <input type="text" placeholder="Ej: 860002964 o Banco de Bogotá">
-            <button type="button" class="btn btn-secondary">🔍 RUES</button>
-          </div>
-          <div class="sub-label" style="margin-top:14px;">Datos de la empresa consultada</div>
-          <div class="row two">
-            <div class="field">
-              <label>Razón social de la empresa</label>
-              <input type="text" placeholder="Nombre de la empresa...">
-            </div>
-            <div class="field">
-              <label>NIT</label>
-              <input type="text" placeholder="NIT...">
-            </div>
+        <div class="row">
+          <div class="field">
+            <label>Fecha de carga <span class="req">*</span></label>
+            <input type="date" name="fecha_carga" required>
           </div>
           <div class="field">
-            <label>Representante legal</label>
-            <div class="inline-add">
-              <input type="text" placeholder="Representante...">
-              <button type="button" class="btn btn-gold">👤 Vincular Rep</button>
-            </div>
+            <label>Fecha del hecho <span class="req">*</span></label>
+            <input type="date" name="fecha_hecho" required>
+            <div class="hint">Si se desconoce, ponga la fecha de detección.</div>
           </div>
-          <button type="button" class="btn btn-secondary" style="width:100%;">+ Agregar Empresa a la Alerta</button>
-        </div>
-      </div>
-
-      <div class="row two">
-        <div class="field">
-          <label>Dato cuantitativo de la alerta</label>
-          <select>
-            <option value="">Seleccione el tipo de dato...</option>
-            <option>Cuantía estimada en pesos (COP)</option>
-            <option>Número de contratos involucrados</option>
-            <option>Número de personas afectadas</option>
-            <option>Sin dato cuantitativo</option>
-          </select>
+          <div class="field">
+            <label>Estado del registro</label>
+            <select name="estado">
+              <option value="Borrador">Borrador</option>
+              <option value="En revisión">En revisión</option>
+              <option value="Enviado" selected>Enviado</option>
+            </select>
+          </div>
         </div>
         <div class="field">
-          <label>¿Registra denuncias previas ante entes de control o judiciales?</label>
-          <select>
-            <option>No registra denuncias previas</option>
-            <option>Sí, ante la Procuraduría</option>
-            <option>Sí, ante la Contraloría</option>
-            <option>Sí, ante la Fiscalía</option>
-            <option>Sí, ante otro ente</option>
-          </select>
+          <label>Responsable de carga (nombre y cargo)</label>
+          <input type="text" name="responsable" placeholder="Deje en blanco si es anónimo">
         </div>
       </div>
-    </div>
 
-    <!-- 6. Triage y criticidad -->
-    <div class="section">
-      <div class="section-title">
-        <span class="section-num">6</span>
-        <span class="label">Triage y criticidad</span>
-      </div>
-      <div class="field" style="margin-bottom:6px;">
-        <select>
-          <option value="">Seleccione calificación de Triage...</option>
-          <option>Riesgo Crítico</option>
-          <option>Riesgo Alto</option>
-          <option>Riesgo Medio</option>
-        </select>
-      </div>
-
-      <details class="guide">
-        <summary>📖 Guía de criterios de clasificación de Triage</summary>
-        <div class="guide-content">
-          <div class="risk-block risk-critical">
-            <h4>🔴 Riesgo Crítico</h4>
-            <ul>
-              <li>Vinculación de altos funcionarios (Ministros, Directores de Departamento Administrativo, Embajadores, Cónsules).</li>
-              <li>Conexión con estructuras criminales (GAO, GDO), lavado de activos, narcotráfico o terrorismo.</li>
-              <li>Incumplimientos contractuales intencionados de alta vocación probatoria.</li>
-              <li>Desvío sistemático y continuado de recursos públicos.</li>
-              <li>Investigaciones formales abiertas con pliego de cargos e imputación de Fiscalía, Contraloría o Procuraduría.</li>
-              <li>Pérdida absoluta de confianza ciudadana con amplia cobertura negativa en medios nacionales.</li>
-            </ul>
+      <!-- SECCIÓN 2 -->
+      <div class="section">
+        <div class="section-title">
+          <div class="section-num">2</div>
+          <span class="label">Sector y entidad — Datos abiertos PGN</span>
+        </div>
+        <div class="row two">
+          <div class="field">
+            <label>Sector <span class="req">*</span></label>
+            <select name="sector" required>
+              <option value="">Seleccione un sector...</option>
+              <option value="Ambiente y Desarrollo Sostenible">Ambiente y Desarrollo Sostenible</option>
+              <option value="Salud y Protección Social">Salud y Protección Social</option>
+              <option value="Educación">Educación</option>
+              <option value="Hacienda y Crédito Público">Hacienda y Crédito Público</option>
+              <option value="Infraestructura y Transporte">Infraestructura y Transporte</option>
+              <option value="Interior">Interior</option>
+              <option value="Trabajo">Trabajo</option>
+              <option value="Otro">Otro</option>
+            </select>
           </div>
-          <div class="risk-block risk-high">
-            <h4>🟠 Riesgo Alto</h4>
-            <ul>
-              <li>Casos que comprometen servicios esenciales del Estado que no implican riesgo de suspensión.</li>
-              <li>Cuantías inferiores a $10.000.000.000 COP pero superiores a $1.000.000.000 COP.</li>
-              <li>Vinculación de directivos medios (Asesores, Directores Técnicos, Subdirectores, Jefes de Oficinas, Subgerentes, Secretarios Generales).</li>
-              <li>Riesgo de retraso en metas institucionales o trámites al ciudadano.</li>
-            </ul>
-          </div>
-          <div class="risk-block risk-medium">
-            <h4>🟡 Riesgo Medio</h4>
-            <ul>
-              <li>Casos que no comprometen servicios públicos esenciales.</li>
-              <li>Cuantías inferiores a $1.000.000.000 COP.</li>
-              <li>Casos sin relevancia mediática.</li>
-              <li>Vinculación de servidores públicos sin cargos directivos o únicamente contratistas.</li>
-              <li>Demás asuntos no contemplados en categorías superiores.</li>
-            </ul>
+          <div class="field">
+            <label>Entidad <span class="req">*</span></label>
+            <input type="text" name="entidad" required placeholder="Nombre completo de la entidad">
           </div>
         </div>
-      </details>
+      </div>
 
-      <div class="sub-label" style="margin-top:14px;">Análisis e incidencias de riesgo</div>
-      <div class="field" style="margin-bottom:0;">
-        <label style="font-size:11.5px; text-transform:uppercase; color:var(--text-muted);">Tipo de incidencia</label>
-        <div class="checkbox-grid">
-          <label class="checkbox-item"><input type="checkbox">Administrativa</label>
-          <label class="checkbox-item"><input type="checkbox">Disciplinaria</label>
-          <label class="checkbox-item"><input type="checkbox">Fiscal</label>
-          <label class="checkbox-item"><input type="checkbox">Penal</label>
+      <!-- SECCIÓN 5 -->
+      <div class="section">
+        <div class="section-title">
+          <div class="section-num">3</div>
+          <span class="label">Descripción de la alerta</span>
+        </div>
+        <div class="field" style="margin-bottom: 14px;">
+          <label>Descripción ejecutiva <span class="req">*</span></label>
+          <input type="text" name="descripcion" required placeholder="Síntesis o titular noticioso de la denuncia" maxlength="500">
+        </div>
+        <div class="field">
+          <label>Hechos detallados (narración libre)</label>
+          <textarea name="hechos" placeholder="Escriba aquí el relato cronológico o detallado de la irregularidad..."></textarea>
         </div>
       </div>
-    </div>
 
-    <!-- 7. Evidencia y carga de soportes -->
-    <div class="section">
-      <div class="section-title">
-        <span class="section-num">7</span>
-        <span class="label">Evidencia y carga de soportes</span>
-      </div>
-      <div class="hint" style="margin-bottom:12px;">Cargue todos los soportes y evidencias que respalden su alerta. Use la zona de arrastre para archivos clave (audios, fotos, PDFs rápidos) y pegue el enlace de Google Drive con la documentación de soporte definitiva.</div>
-
-      <label class="dropzone" for="fileInput">
-        <div class="icon">⬆️</div>
-        <div class="main">Arrastre aquí archivos clave o haga clic para examinar</div>
-        <div class="sub">PDF, XLSX, DOCX, PNG, MP3, JPG (Máx. 25MB por archivo)</div>
-        <input type="file" id="fileInput" multiple style="display:none" onchange="listFiles(this)">
-      </label>
-      <ul class="file-list" id="fileList"></ul>
-
-      <div class="field" style="margin-bottom:16px;">
-        <label>Enlace a carpeta en Google Drive <span class="req">*</span></label>
-        <input type="url" placeholder="https://drive.google.com/drive/folders/...">
-        <div class="hint">Pegue el enlace compartido de la carpeta de Drive (se recomienda nombrarla con el radicado consecutivo, ej: EMP-CON-2026-XXXX).</div>
+      <!-- BOTÓN DE ENVÍO -->
+      <div class="btn-submit-container">
+        <button type="submit" class="btn-primary">Enviar Alerta al Sistema</button>
       </div>
 
-      <div class="field" style="margin-bottom:0;">
-        <label>🔗 Relación de alertas / vincular a macro-caso</label>
-        <div class="hint" style="margin:0 0 6px;">Si este caso forma parte de una denuncia conjunta o macro-caso existente en su sector, selecciónelo a continuación para agruparlos:</div>
-        <select>
-          <option>No vincular (Alerta Principal / Independiente)</option>
-          <option>Vincular a macro-caso existente...</option>
-        </select>
-      </div>
-    </div>
-
+    </form>
   </div>
-
-  <div class="modal-footer">
-    <div class="footer-left">
-      <button type="button" class="btn btn-outline" onclick="if(confirm('¿Cancelar el registro?')) window.location.reload();">Cancelar</button>
-      <button type="button" class="btn btn-secondary" onclick="saveDraft()">Borrador</button>
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar a Grupo Élite</button>
-  </div>
-</form>
-
-<script>
-function toggleAnon(){
-  const anon = document.getElementById('anonToggle').checked;
-  const row = document.getElementById('responsableRow');
-  row.style.display = anon ? 'none' : 'grid';
-}
-
-function selectCategory(cat){
-  document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('selected'));
-  document.querySelector('.cat-card[data-cat="'+cat+'"]').classList.add('selected');
-
-  ['contratacion','presupuesto','denuncia','personal'].forEach(c=>{
-    const el = document.getElementById('subtipo-'+c);
-    if(el) el.classList.add('hidden');
-  });
-  const chosen = document.getElementById('subtipo-'+cat);
-  if(chosen) chosen.classList.remove('hidden');
-
-  document.getElementById('secopField').style.display = (cat === 'contratacion') ? 'block' : 'none';
-}
-
-function addToList(inputId, listId){
-  const input = document.getElementById(inputId);
-  const val = input.value.trim();
-  if(!val) return;
-  const li = document.createElement('li');
-  li.innerHTML = '<span></span><button type="button">Quitar</button>';
-  li.querySelector('span').textContent = val;
-  li.querySelector('button').onclick = ()=> li.remove();
-  document.getElementById(listId).appendChild(li);
-  input.value = '';
-}
-
-function addRelatedEntity(){
-  const val = prompt('Nombre de la entidad relacionada:');
-  if(!val) return;
-  const li = document.createElement('li');
-  li.innerHTML = '<span></span><button type="button">Quitar</button>';
-  li.querySelector('span').textContent = val;
-  li.querySelector('button').onclick = ()=> li.remove();
-  document.getElementById('relatedEntitiesList').appendChild(li);
-}
-
-function addTimeline(){
-  const date = document.getElementById('timelineDate').value;
-  const desc = document.getElementById('timelineDesc').value.trim();
-  if(!date || !desc){ alert('Ingrese fecha y descripción del hito.'); return; }
-  const li = document.createElement('li');
-  li.innerHTML = '<span></span><button type="button">Quitar</button>';
-  li.querySelector('span').textContent = date + ' — ' + desc;
-  li.querySelector('button').onclick = ()=> li.remove();
-  document.getElementById('timelineList').appendChild(li);
-  document.getElementById('timelineDate').value = '';
-  document.getElementById('timelineDesc').value = '';
-}
-
-function addPerson(){
-  const name = document.getElementById('personName').value.trim();
-  const role = document.getElementById('personRole').value.trim();
-  if(!name){ alert('Ingrese el nombre completo.'); return; }
-  const li = document.createElement('li');
-  li.innerHTML = '<span></span><button type="button">Quitar</button>';
-  li.querySelector('span').textContent = name + (role ? ' — ' + role : '');
-  li.querySelector('button').onclick = ()=> li.remove();
-  document.getElementById('personsList').appendChild(li);
-  document.getElementById('personName').value = '';
-  document.getElementById('personRole').value = '';
-}
-
-function toggleEmpresa(){
-  const on = document.getElementById('empresaToggle').checked;
-  document.getElementById('empresaBlock').classList.toggle('hidden', !on);
-}
-
-function listFiles(input){
-  const list = document.getElementById('fileList');
-  list.innerHTML = '';
-  Array.from(input.files).forEach(f=>{
-    const li = document.createElement('li');
-    li.innerHTML = '<span></span><button type="button">Quitar</button>';
-    li.querySelector('span').textContent = f.name + ' (' + Math.round(f.size/1024) + ' KB)';
-    li.querySelector('button').onclick = ()=> li.remove();
-    list.appendChild(li);
-  });
-}
-
-function saveDraft(){
-  alert('Registro guardado como borrador.');
-}
-
-document.getElementById('alertForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  alert('Alerta enviada al Grupo Élite. (Esto es una réplica de demostración; conecte este formulario a su backend para procesar envíos reales.)');
-});
-
-// Estado inicial
-document.getElementById('secopField').style.display = 'none';
-</script>
+</div>
 
 </body>
 </html>
