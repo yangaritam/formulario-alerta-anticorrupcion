@@ -298,8 +298,6 @@
   </div>
 
   <div class="modal-body">
-  <form action="https://script.google.com/macros/s/AKfycbx6UMQjQwvrTATMSmD1YmPk3Xui2V-OYBnrGx89lMWCSvy7sLasfqapjNwAF5xgSFooog/exec" method="POST">
-
 
     <!-- Denuncia anónima -->
     <div class="anon-banner">
@@ -320,7 +318,7 @@
         <span class="label">Identificación y responsables</span>
         <span class="badge badge-required">Obligatorio</span>
       </div>
-      <div class="row">
+      <div class="row two">
         <div class="field">
           <label>Fecha de carga <span class="req">*</span></label>
           <input type="date" id="fechaCarga" required>
@@ -329,14 +327,6 @@
           <label>Fecha del hecho <span class="req">*</span></label>
           <input type="date" id="fechaHecho" required>
           <div class="hint">Si se desconoce la fecha exacta, reporte la fecha en la que se encontró o detectó la irregularidad.</div>
-        </div>
-        <div class="field">
-          <label>Estado del registro</label>
-          <select id="estadoRegistro">
-            <option>Borrador</option>
-            <option>En revisión</option>
-            <option>Enviado</option>
-          </select>
         </div>
       </div>
       <div class="row" id="responsableRow">
@@ -359,6 +349,13 @@
           <label>Sector <span class="req">*</span></label>
           <select id="sector">
             <option>Ambiente y Desarrollo Sostenible</option>
+            <option>Salud y Protección Social</option>
+            <option>Educación</option>
+            <option>Hacienda y Crédito Público</option>
+            <option>Infraestructura y Transporte</option>
+            <option>Interior</option>
+            <option>Trabajo</option>
+            <option>Otro</option>
           </select>
         </div>
         <div class="field">
@@ -413,37 +410,37 @@
       <div class="sub-label">Sub-tipo</div>
 
       <div class="checkbox-grid" id="subtipo-contratacion">
-        <label class="checkbox-item"><input type="checkbox">Contratos OPS inusuales</label>
-        <label class="checkbox-item"><input type="checkbox">Contratos de alto valor</label>
-        <label class="checkbox-item"><input type="checkbox">Período Ley de Garantías</label>
-        <label class="checkbox-item"><input type="checkbox">Proceso contractual en curso</label>
-        <label class="checkbox-item"><input type="checkbox">Contratación de convenios interadministrativos</label>
-        <label class="checkbox-item"><input type="checkbox">Elefante Blanco</label>
-        <label class="checkbox-item"><input type="checkbox">Otro (Especificar)</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-contratacion" value="Contratos OPS inusuales">Contratos OPS inusuales</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-contratacion" value="Contratos de alto valor">Contratos de alto valor</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-contratacion" value="Período Ley de Garantías">Período Ley de Garantías</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-contratacion" value="Proceso contractual en curso">Proceso contractual en curso</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-contratacion" value="Contratación de convenios interadministrativos">Contratación de convenios interadministrativos</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-contratacion" value="Elefante Blanco">Elefante Blanco</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-contratacion" value="Otro (Especificar)">Otro (Especificar)</label>
       </div>
 
       <div class="checkbox-grid hidden" id="subtipo-presupuesto">
-        <label class="checkbox-item"><input type="checkbox">Traslado presupuestal</label>
-        <label class="checkbox-item"><input type="checkbox">Adición presupuestal</label>
-        <label class="checkbox-item"><input type="checkbox">Ejecución acelerada</label>
-        <label class="checkbox-item"><input type="checkbox">Compromiso de vigencias futuras</label>
-        <label class="checkbox-item"><input type="checkbox">Otro (Especificar)</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-presupuesto" value="Traslado presupuestal">Traslado presupuestal</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-presupuesto" value="Adición presupuestal">Adición presupuestal</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-presupuesto" value="Ejecución acelerada">Ejecución acelerada</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-presupuesto" value="Compromiso de vigencias futuras">Compromiso de vigencias futuras</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-presupuesto" value="Otro (Especificar)">Otro (Especificar)</label>
       </div>
 
       <div class="checkbox-grid hidden" id="subtipo-denuncia">
-        <label class="checkbox-item"><input type="checkbox">Denuncia ciudadana directa</label>
-        <label class="checkbox-item"><input type="checkbox">Informante / veeduría</label>
-        <label class="checkbox-item"><input type="checkbox">Publicación en medios</label>
-        <label class="checkbox-item"><input type="checkbox">Otro (Especificar)</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-denuncia" value="Denuncia ciudadana directa">Denuncia ciudadana directa</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-denuncia" value="Informante / veeduría">Informante / veeduría</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-denuncia" value="Publicación en medios">Publicación en medios</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-denuncia" value="Otro (Especificar)">Otro (Especificar)</label>
       </div>
 
       <div class="checkbox-grid hidden" id="subtipo-personal">
-        <label class="checkbox-item"><input type="checkbox">Provisionalidad</label>
-        <label class="checkbox-item"><input type="checkbox">Requisitos</label>
-        <label class="checkbox-item"><input type="checkbox">Modificación planta</label>
-        <label class="checkbox-item"><input type="checkbox">Acoso laboral</label>
-        <label class="checkbox-item"><input type="checkbox">Acoso sexual</label>
-        <label class="checkbox-item"><input type="checkbox">Otro (Especificar)</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-personal" value="Provisionalidad">Provisionalidad</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-personal" value="Requisitos">Requisitos</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-personal" value="Modificación planta">Modificación planta</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-personal" value="Acoso laboral">Acoso laboral</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-personal" value="Acoso sexual">Acoso sexual</label>
+        <label class="checkbox-item"><input type="checkbox" class="chk-sub-personal" value="Otro (Especificar)">Otro (Especificar)</label>
       </div>
 
       <div class="field" id="secopField" style="margin-top:6px;">
@@ -459,11 +456,11 @@
       <div class="field" style="margin-top:16px;">
         <div class="sub-label">Factores de riesgo de corrupción</div>
         <div class="checkbox-grid two">
-          <label class="checkbox-item"><input type="checkbox">Pérdida de recursos públicos (Desfalcos, sobrecostos)</label>
-          <label class="checkbox-item"><input type="checkbox">Desviación o manejo normativo contrario (Ilegalidad)</label>
-          <label class="checkbox-item"><input type="checkbox">Delitos / Hechos derivados de corrupción</label>
-          <label class="checkbox-item"><input type="checkbox">Riesgo inminente por cambios normativos de transición</label>
-          <label class="checkbox-item"><input type="checkbox">Riesgo de clientelismo, nombramientos masivos o amarre de cargos en la planta de personal</label>
+          <label class="checkbox-item"><input type="checkbox" class="chk-factores" value="Pérdida de recursos públicos (Desfalcos, sobrecostos)">Pérdida de recursos públicos (Desfalcos, sobrecostos)</label>
+          <label class="checkbox-item"><input type="checkbox" class="chk-factores" value="Desviación o manejo normativo contrario (Ilegalidad)">Desviación o manejo normativo contrario (Ilegalidad)</label>
+          <label class="checkbox-item"><input type="checkbox" class="chk-factores" value="Delitos / Hechos derivados de corrupción">Delitos / Hechos derivados de corrupción</label>
+          <label class="checkbox-item"><input type="checkbox" class="chk-factores" value="Riesgo inminente por cambios normativos de transición">Riesgo inminente por cambios normativos de transición</label>
+          <label class="checkbox-item"><input type="checkbox" class="chk-factores" value="Riesgo de clientelismo, nombramientos masivos o amarre de cargos en la planta de personal">Riesgo de clientelismo, nombramientos masivos o amarre de cargos en la planta de personal</label>
         </div>
       </div>
     </div>
@@ -510,7 +507,7 @@
 
       <div class="field" style="margin-bottom:16px;">
         <label>Hechos detallados (narración libre)</label>
-        <textarea placeholder="Detalles de los hechos..."></textarea>
+        <textarea id="hechosDetallados" placeholder="Detalles de los hechos..."></textarea>
       </div>
 
       <div class="field" style="margin-bottom:16px;">
@@ -545,8 +542,8 @@
         </div>
         <div class="persons-actions">
           <div class="left">
-            <label class="checkbox-item"><input type="checkbox">¿Servidor Público?</label>
-            <label class="checkbox-item"><input type="checkbox">¿Particular?</label>
+            <label class="checkbox-item"><input type="checkbox" id="personServidor">¿Servidor Público?</label>
+            <label class="checkbox-item"><input type="checkbox" id="personParticular">¿Particular?</label>
           </div>
           <div style="display:flex; gap:8px;">
             <button type="button" class="btn btn-outline" onclick="addPerson()">+ Agregar Persona</button>
@@ -568,24 +565,24 @@
           <div class="sub-label">Buscador RUES oficial (Confecámaras)</div>
           <label style="font-size:12px; font-weight:600; display:block; margin-bottom:6px;">Buscar empresa por NIT o nombre</label>
           <div class="inline-add">
-            <input type="text" placeholder="Ej: 860002964 o Banco de Bogotá">
+            <input type="text" id="empresaBusqueda" placeholder="Ej: 860002964 o Banco de Bogotá">
             <button type="button" class="btn btn-secondary">🔍 RUES</button>
           </div>
           <div class="sub-label" style="margin-top:14px;">Datos de la empresa consultada</div>
           <div class="row two">
             <div class="field">
               <label>Razón social de la empresa</label>
-              <input type="text" placeholder="Nombre de la empresa...">
+              <input type="text" id="empresaRazonSocial" placeholder="Nombre de la empresa...">
             </div>
             <div class="field">
               <label>NIT</label>
-              <input type="text" placeholder="NIT...">
+              <input type="text" id="empresaNit" placeholder="NIT...">
             </div>
           </div>
           <div class="field">
             <label>Representante legal</label>
             <div class="inline-add">
-              <input type="text" placeholder="Representante...">
+              <input type="text" id="empresaRepresentante" placeholder="Representante...">
               <button type="button" class="btn btn-gold">👤 Vincular Rep</button>
             </div>
           </div>
@@ -596,7 +593,7 @@
       <div class="row two">
         <div class="field">
           <label>Dato cuantitativo de la alerta</label>
-          <select>
+          <select id="datoCuantitativo">
             <option value="">Seleccione el tipo de dato...</option>
             <option>Cuantía estimada en pesos (COP)</option>
             <option>Número de contratos involucrados</option>
@@ -606,7 +603,7 @@
         </div>
         <div class="field">
           <label>¿Registra denuncias previas ante entes de control o judiciales?</label>
-          <select>
+          <select id="denunciasPrevias">
             <option>No registra denuncias previas</option>
             <option>Sí, ante la Procuraduría</option>
             <option>Sí, ante la Contraloría</option>
@@ -624,7 +621,7 @@
         <span class="label">Triage y criticidad</span>
       </div>
       <div class="field" style="margin-bottom:6px;">
-        <select>
+        <select id="triage">
           <option value="">Seleccione calificación de Triage...</option>
           <option>Riesgo Crítico</option>
           <option>Riesgo Alto</option>
@@ -672,10 +669,10 @@
       <div class="field" style="margin-bottom:0;">
         <label style="font-size:11.5px; text-transform:uppercase; color:var(--text-muted);">Tipo de incidencia</label>
         <div class="checkbox-grid">
-          <label class="checkbox-item"><input type="checkbox">Administrativa</label>
-          <label class="checkbox-item"><input type="checkbox">Disciplinaria</label>
-          <label class="checkbox-item"><input type="checkbox">Fiscal</label>
-          <label class="checkbox-item"><input type="checkbox">Penal</label>
+          <label class="checkbox-item"><input type="checkbox" class="chk-incidencia" value="Administrativa">Administrativa</label>
+          <label class="checkbox-item"><input type="checkbox" class="chk-incidencia" value="Disciplinaria">Disciplinaria</label>
+          <label class="checkbox-item"><input type="checkbox" class="chk-incidencia" value="Fiscal">Fiscal</label>
+          <label class="checkbox-item"><input type="checkbox" class="chk-incidencia" value="Penal">Penal</label>
         </div>
       </div>
     </div>
@@ -698,14 +695,14 @@
 
       <div class="field" style="margin-bottom:16px;">
         <label>Enlace a carpeta en Google Drive <span class="req">*</span></label>
-        <input type="url" placeholder="https://drive.google.com/drive/folders/...">
+        <input type="url" id="driveLink" placeholder="https://drive.google.com/drive/folders/...">
         <div class="hint">Pegue el enlace compartido de la carpeta de Drive (se recomienda nombrarla con el radicado consecutivo, ej: EMP-CON-2026-XXXX).</div>
       </div>
 
       <div class="field" style="margin-bottom:0;">
         <label>🔗 Relación de alertas / vincular a macro-caso</label>
         <div class="hint" style="margin:0 0 6px;">Si este caso forma parte de una denuncia conjunta o macro-caso existente en su sector, selecciónelo a continuación para agruparlos:</div>
-        <select>
+        <select id="macroCaso">
           <option>No vincular (Alerta Principal / Independiente)</option>
           <option>Vincular a macro-caso existente...</option>
         </select>
@@ -730,7 +727,10 @@ function toggleAnon(){
   row.style.display = anon ? 'none' : 'grid';
 }
 
+let selectedCategory = '';
+
 function selectCategory(cat){
+  selectedCategory = cat;
   document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('selected'));
   document.querySelector('.cat-card[data-cat="'+cat+'"]').classList.add('selected');
 
@@ -809,9 +809,93 @@ function listFiles(input){
   });
 }
 
-function saveDraft(){
-  alert('Registro guardado como borrador.');
+// URL de tu Web App de Google Apps Script (deployment /exec)
+const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbw2JXBk9iADxCwsk8astxx8_7p_92RgTjERY0kDLcUbwAdX7z3t2L_bSnFh1SAmS27OQA/exec';
+
+function textsFromList(listId){
+  return Array.from(document.querySelectorAll('#'+listId+' li span')).map(s => s.textContent);
 }
+
+function checkedValues(selector){
+  return Array.from(document.querySelectorAll(selector)).filter(c => c.checked).map(c => c.value || c.parentElement.textContent.trim());
+}
+
+function collectFormData(){
+  return {
+    radicado: document.getElementById('radicado').textContent,
+    esAnonima: document.getElementById('anonToggle').checked ? 'Sí' : 'No',
+    responsableCarga: document.getElementById('anonToggle').checked ? '' : document.getElementById('responsableCarga').value,
+
+    fechaCarga: document.getElementById('fechaCarga').value,
+    fechaHecho: document.getElementById('fechaHecho').value,
+
+    sector: document.getElementById('sector').value,
+    entidad: document.getElementById('entidad').value,
+    entidadesRelacionadas: textsFromList('relatedEntitiesList').join(' | '),
+    dependencia: document.getElementById('dependencia').value,
+
+    categoria: selectedCategory,
+    subtipoContratacion: checkedValues('.chk-sub-contratacion').join(' | '),
+    subtipoPresupuesto: checkedValues('.chk-sub-presupuesto').join(' | '),
+    subtipoDenuncia: checkedValues('.chk-sub-denuncia').join(' | '),
+    subtipoPersonal: checkedValues('.chk-sub-personal').join(' | '),
+    enlacesSecop: textsFromList('secopList').join(' | '),
+    factoresRiesgo: checkedValues('.chk-factores').join(' | '),
+
+    origenDatos: document.getElementById('origenDatos').value,
+    fuentesPublicasConsultadas: document.getElementById('fuentesPublicas').checked ? 'Sí' : 'No',
+
+    descripcionEjecutiva: document.getElementById('descExec').value,
+    hechosDetallados: document.getElementById('hechosDetallados').value,
+    lineaTiempo: textsFromList('timelineList').join(' | '),
+    linksMedios: textsFromList('mediaLinkList').join(' | '),
+    personasInvolucradas: textsFromList('personsList').join(' | '),
+    personaServidorPublico: document.getElementById('personServidor').checked ? 'Sí' : 'No',
+    personaParticular: document.getElementById('personParticular').checked ? 'Sí' : 'No',
+
+    hayEmpresaInvolucrada: document.getElementById('empresaToggle').checked ? 'Sí' : 'No',
+    empresaRazonSocial: document.getElementById('empresaRazonSocial').value,
+    empresaNit: document.getElementById('empresaNit').value,
+    empresaRepresentante: document.getElementById('empresaRepresentante').value,
+
+    datoCuantitativo: document.getElementById('datoCuantitativo').value,
+    denunciasPrevias: document.getElementById('denunciasPrevias').value,
+
+    triage: document.getElementById('triage').value,
+    tipoIncidencia: checkedValues('.chk-incidencia').join(' | '),
+
+    archivosAdjuntos: textsFromList('fileList').join(' | '),
+    enlaceDrive: document.getElementById('driveLink').value,
+    macroCaso: document.getElementById('macroCaso').value,
+
+    fechaEnvio: new Date().toISOString()
+  };
+}
+
+function enviarDatos(estadoEnvio){
+  const data = collectFormData();
+  data.estadoEnvio = estadoEnvio; // 'Borrador' o 'Enviado a Grupo Élite'
+
+  return fetch(ENDPOINT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(data)
+  });
+}
+
+function saveDraft(){
+  enviarDatos('Borrador')
+    .then(() => alert('Registro guardado como borrador y enviado a la hoja de datos.'))
+    .catch(() => alert('No se pudo conectar con el servidor. Verifique su conexión e intente de nuevo.'));
+}
+
+document.getElementById('alertForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  enviarDatos('Enviado a Grupo Élite')
+    .then(() => alert('Alerta enviada al Grupo Élite correctamente.'))
+    .catch(() => alert('No se pudo conectar con el servidor. Verifique su conexión e intente de nuevo.'));
+});
 
 // Estado inicial
 document.getElementById('secopField').style.display = 'none';
