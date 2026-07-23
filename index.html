@@ -145,20 +145,6 @@
   textarea{resize:vertical; min-height:70px;}
   .char-count{font-size:11px; color:var(--text-muted); text-align:right; margin-top:2px;}
 
-  /* Anonymous banner */
-  .anon-banner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    background:var(--navy-dark);
-    color:#fff;
-    padding:14px 18px;
-    border-radius:8px;
-    margin-bottom:20px;
-    gap:16px;
-  }
-  .anon-banner .txt strong{display:block; font-size:13.5px; margin-bottom:2px;}
-  .anon-banner .txt span{font-size:12px; color:#c6c9de;}
   .switch{
     position:relative; display:inline-block; width:44px; height:24px; flex-shrink:0;
   }
@@ -298,18 +284,6 @@
   </div>
 
   <div class="modal-body">
-
-    <!-- Denuncia anónima -->
-    <div class="anon-banner">
-      <div class="txt">
-        <strong>Denuncia anónima</strong>
-        <span>Si activa esta opción, no se solicitarán ni se guardarán sus datos como responsable de carga.</span>
-      </div>
-      <label class="switch">
-        <input type="checkbox" id="anonToggle" onchange="toggleAnon()">
-        <span class="slider"></span>
-      </label>
-    </div>
 
     <!-- 1. Identificación y responsables -->
     <div class="section">
@@ -693,12 +667,6 @@
       </label>
       <ul class="file-list" id="fileList"></ul>
 
-      <div class="field" style="margin-bottom:16px;">
-        <label>Enlace a carpeta en Google Drive <span class="req">*</span></label>
-        <input type="url" id="driveLink" placeholder="https://drive.google.com/drive/folders/...">
-        <div class="hint">Pegue el enlace compartido de la carpeta de Drive (se recomienda nombrarla con el radicado consecutivo, ej: EMP-CON-2026-XXXX).</div>
-      </div>
-
       <div class="field" style="margin-bottom:0;">
         <label>🔗 Relación de alertas / vincular a macro-caso</label>
         <div class="hint" style="margin:0 0 6px;">Si este caso forma parte de una denuncia conjunta o macro-caso existente en su sector, selecciónelo a continuación para agruparlos:</div>
@@ -721,12 +689,6 @@
 </form>
 
 <script>
-function toggleAnon(){
-  const anon = document.getElementById('anonToggle').checked;
-  const row = document.getElementById('responsableRow');
-  row.style.display = anon ? 'none' : 'grid';
-}
-
 let selectedCategory = '';
 
 function selectCategory(cat){
@@ -810,7 +772,7 @@ function listFiles(input){
 }
 
 // URL de tu Web App de Google Apps Script (deployment /exec)
-const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbw2JXBk9iADxCwsk8astxx8_7p_92RgTjERY0kDLcUbwAdX7z3t2L_bSnFh1SAmS27OQA/exec';
+const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbzYdn4YoSxpqsCsgTNVYGkAD_7E5moungCq559XMG_MA23q78gkX0jP7HxwF2oJ_iv7/exec';
 
 function textsFromList(listId){
   return Array.from(document.querySelectorAll('#'+listId+' li span')).map(s => s.textContent);
@@ -823,8 +785,7 @@ function checkedValues(selector){
 function collectFormData(){
   return {
     radicado: document.getElementById('radicado').textContent,
-    esAnonima: document.getElementById('anonToggle').checked ? 'Sí' : 'No',
-    responsableCarga: document.getElementById('anonToggle').checked ? '' : document.getElementById('responsableCarga').value,
+    responsableCarga: document.getElementById('responsableCarga').value,
 
     fechaCarga: document.getElementById('fechaCarga').value,
     fechaHecho: document.getElementById('fechaHecho').value,
@@ -865,7 +826,6 @@ function collectFormData(){
     tipoIncidencia: checkedValues('.chk-incidencia').join(' | '),
 
     archivosAdjuntos: textsFromList('fileList').join(' | '),
-    enlaceDrive: document.getElementById('driveLink').value,
     macroCaso: document.getElementById('macroCaso').value,
 
     fechaEnvio: new Date().toISOString()
