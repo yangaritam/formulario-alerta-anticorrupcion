@@ -657,9 +657,9 @@
         <span class="section-num">7</span>
         <span class="label">Evidencia y carga de soportes</span>
       </div>
-      <div class="hint" style="margin-bottom:12px;">Cargue todos los soportes y evidencias que respalden su alerta. Use la zona de arrastre para archivos clave (audios, fotos, PDFs rápidos) y pegue el enlace de Google Drive con la documentación de soporte definitiva.</div>
+      <div class="hint" style="margin-bottom:12px;">Cargue todos los soportes y evidencias que respalden su alerta. Puede arrastrar los archivos aquí o hacer clic para seleccionarlos desde su equipo.</div>
 
-      <label class="dropzone" for="fileInput">
+      <label class="dropzone" for="fileInput" id="dropzone">
         <div class="icon">⬆️</div>
         <div class="main">Arrastre aquí archivos clave o haga clic para examinar</div>
         <div class="sub">PDF, XLSX, DOCX, PNG, MP3, JPG (Máx. 25MB por archivo)</div>
@@ -762,14 +762,54 @@ function toggleEmpresa(){
 function listFiles(input){
   const list = document.getElementById('fileList');
   list.innerHTML = '';
-  Array.from(input.files).forEach(f=>{
+  Array.from(input.files).forEach((f, idx)=>{
     const li = document.createElement('li');
     li.innerHTML = '<span></span><button type="button">Quitar</button>';
     li.querySelector('span').textContent = f.name + ' (' + Math.round(f.size/1024) + ' KB)';
-    li.querySelector('button').onclick = ()=> li.remove();
+    li.querySelector('button').onclick = ()=> removeFile(idx);
     list.appendChild(li);
   });
 }
+
+function removeFile(index){
+  const fileInput = document.getElementById('fileInput');
+  const dt = new DataTransfer();
+  Array.from(fileInput.files).forEach((f, i)=>{ if(i !== index) dt.items.add(f); });
+  fileInput.files = dt.files;
+  listFiles(fileInput);
+}
+
+// Soporte real de arrastrar-y-soltar sobre la zona de carga
+(function setupDropzone(){
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+
+  ['dragenter','dragover'].forEach(evt=>{
+    dropzone.addEventListener(evt, function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.style.background = '#e6ebfa';
+    });
+  });
+
+  ['dragleave','drop'].forEach(evt=>{
+    dropzone.addEventListener(evt, function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.style.background = '';
+    });
+  });
+
+  dropzone.addEventListener('drop', function(e){
+    const dt = new DataTransfer();
+    // Conserva los archivos ya seleccionados antes (si los hay)
+    Array.from(fileInput.files).forEach(f => dt.items.add(f));
+    // Agrega los nuevos archivos soltados
+    Array.from(e.dataTransfer.files).forEach(f => dt.items.add(f));
+    fileInput.files = dt.files;
+    listFiles(fileInput);
+  });
+})();
 
 function fileToBase64(file){
   return new Promise((resolve, reject) => {
@@ -792,7 +832,7 @@ async function getArchivosBase64(){
 }
 
 // URL de tu Web App de Google Apps Script (deployment /exec)
-const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbx5WQgfvji25CGLm4bHIMf0rkppAcD_NRQ9YAQkxLezJmjHuor1YCZAyh43jVuvlQLfiA/exec';
+const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbzCpfa3t9Zs65Xd-wM9-7v4oQI2CARYD0jvaC8u5L0clQDyTirfFoQk5KgnYiXnOiZ6ig/exec';
 
 function textsFromList(listId){
   return Array.from(document.querySelectorAll('#'+listId+' li span')).map(s => s.textContent);
