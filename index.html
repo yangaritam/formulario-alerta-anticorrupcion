@@ -771,8 +771,28 @@ function listFiles(input){
   });
 }
 
+function fileToBase64(file){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]); // quita el prefijo data:...;base64,
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function getArchivosBase64(){
+  const input = document.getElementById('fileInput');
+  const files = Array.from(input.files);
+  const resultado = [];
+  for (const f of files){
+    const base64 = await fileToBase64(f);
+    resultado.push({ nombre: f.name, tipo: f.type || 'application/octet-stream', base64: base64 });
+  }
+  return resultado;
+}
+
 // URL de tu Web App de Google Apps Script (deployment /exec)
-const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbwe-41XX6i8cnZudl2J0p-VbQnPbUq3L-AatEMZ5ZKOl9tj90HCrTENcWWB0k2RmsGqrg/exec';
+const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbx5WQgfvji25CGLm4bHIMf0rkppAcD_NRQ9YAQkxLezJmjHuor1YCZAyh43jVuvlQLfiA/exec';
 
 function textsFromList(listId){
   return Array.from(document.querySelectorAll('#'+listId+' li span')).map(s => s.textContent);
@@ -782,7 +802,8 @@ function checkedValues(selector){
   return Array.from(document.querySelectorAll(selector)).filter(c => c.checked).map(c => c.value || c.parentElement.textContent.trim());
 }
 
-function collectFormData(){
+async function collectFormData(){
+  const archivos = await getArchivosBase64();
   return {
     radicado: document.getElementById('radicado').textContent,
     responsableCarga: document.getElementById('responsableCarga').value,
@@ -825,15 +846,15 @@ function collectFormData(){
     triage: document.getElementById('triage').value,
     tipoIncidencia: checkedValues('.chk-incidencia').join(' | '),
 
-    archivosAdjuntos: textsFromList('fileList').join(' | '),
+    archivos: archivos,
     macroCaso: document.getElementById('macroCaso').value,
 
     fechaEnvio: new Date().toISOString()
   };
 }
 
-function enviarDatos(estadoEnvio){
-  const data = collectFormData();
+async function enviarDatos(estadoEnvio){
+  const data = await collectFormData();
   data.estadoEnvio = estadoEnvio; // 'Borrador' o 'Enviado a Grupo Élite'
 
   return fetch(ENDPOINT_URL, {
